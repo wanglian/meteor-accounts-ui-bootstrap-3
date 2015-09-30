@@ -78,7 +78,7 @@ ptBR = {
 		newPasswordAgain: "Nova Senha (confirmacao)"
 	},
 	infoMessages: {
-		sent: "E-mail enviado",
+		emailSent: "E-mail enviado",
 		passwordChanged: "Senha alterada"
 	},
 	errorMessages: {

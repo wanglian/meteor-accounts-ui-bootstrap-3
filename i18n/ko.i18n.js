@@ -78,7 +78,7 @@ i18n.map("ko", {
 		newPasswordAgain: "새로운 비밀번호 (확인)"
 	},
 	infoMessages: {
-		sent: "이메일이 발송되었습니다",
+		emailSent: "이메일이 발송되었습니다",
 		passwordChanged: "비밀번호가 변경되었습니다"
 	},
 	errorMessages: {

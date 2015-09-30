@@ -79,7 +79,7 @@ ptPT = {
 		newPasswordAgain: "Nova palavra-passe (confirmacao)"
 	},
 	infoMessages: {
-		sent: "E-mail enviado",
+		emailSent: "E-mail enviado",
 		passwordChanged: "Palavra-passe alterada"
 	},
 	errorMessages: {

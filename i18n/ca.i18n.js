@@ -78,7 +78,7 @@ i18n.map("ca", {
 		newPasswordAgain: "Nova Contrasenya (un altre cop)"
 	},
 	infoMessages: {
-		sent: "Email enviat",
+		emailSent: "Email enviat",
 		passwordChanged: "Contrasenya canviada"
 	},
 	errorMessages: {

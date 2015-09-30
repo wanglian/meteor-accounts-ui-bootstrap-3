@@ -78,7 +78,7 @@ i18n.map("it", {
 		newPasswordAgain: "Nuova password (di nuovo)"
 	},
 	infoMessages: {
-		sent: "Email inviata",
+		emailSent: "Email inviata",
 		passwordChanged: "Password changed"
 	},
 	errorMessages: {
