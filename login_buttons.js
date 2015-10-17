@@ -159,7 +159,7 @@
 	};
 	Accounts._loginButtons.validatePassword = function(password, passwordAgain) {
 		if (password.length >= 6) {
-			if (passwordAgain && (password != passwordAgain)) {
+			if (typeof passwordAgain !== "undefined" && passwordAgain !== null && password != passwordAgain) {
 				loginButtonsSession.errorMessage(i18n('errorMessages.passwordsDontMatch'));
 				return false;
 			}
