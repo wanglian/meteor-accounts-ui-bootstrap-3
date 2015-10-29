@@ -52,6 +52,14 @@
 
 		dropdownVisible: function() {
 			return loginButtonsSession.get('dropdownVisible');
+		},
+
+		user_profile_picture: function() {
+			var user = Meteor.user();
+			if (user && user.profile && user.profile.display_picture) {
+				return user.profile.display_picture;
+			}
+			return "";
 		}
 	});
 
