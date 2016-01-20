@@ -2,15 +2,15 @@
 <!-- LOGGED IN -->
 <!--           -->
 <template name="_loginButtonsLoggedInDropdown">
-	<li id="login-dropdown-list" class="dropdown">
+	<li id="login-dropdown-list" class="dropdown user user-menu">
 		<a class="dropdown-toggle" data-toggle="dropdown">
-			{{displayName}}
 			{{#with user_profile_picture}}
-				<img src="{{this}}" width="30px" height="30px" class="img-circle" alt="#" />
+				<img src="{{this}}" class="user-image" alt="#" />
 			{{/with}}
+			{{displayName}}
 			<b class="caret"></b>
 		</a>
-		<div class="dropdown-menu">
+		<ul class="dropdown-menu">
 			{{#if inMessageOnlyFlow}}
 				{{> _loginButtonsMessages}}
 			{{else}}
@@ -20,7 +20,7 @@
 					{{> _loginButtonsLoggedInDropdownActions}}
 				{{/if}}
 			{{/if}}
-		</div>
+		</ul>
 	</li>
 </template>
 
@@ -29,22 +29,29 @@
 		{{> _loginButtonsAdditionalLoggedInDropdownActions}}
 	{{/if}}
 
-	{{#if allowChangingPassword}}
-		<button class="btn btn-default btn-block" id="login-buttons-open-change-password">{{i18n 'loginButtonsLoggedInDropdownActions.password'}}</button>
-	{{/if}}
-
-	<button class="btn btn-block btn-primary" id="login-buttons-logout">{{i18n 'loginButtonsLoggedInDropdownActions.signOut'}}</button>
+  <li class="user-footer">
+    <div class="pull-left">
+      {{#if allowChangingPassword}}
+        <button class="btn btn-default btn-flat" id="login-buttons-open-change-password">{{i18n 'loginButtonsLoggedInDropdownActions.password'}}</button>
+      {{/if}}
+    </div>
+    <div class="pull-right">
+      <button class="btn btn-default btn-flat" id="login-buttons-logout">{{i18n 'loginButtonsLoggedInDropdownActions.signOut'}}</button>
+    </div>
+  </li>
 </template>
 
 <!--            -->
 <!-- LOGGED OUT -->
 <!--            -->
 <template name="_loginButtonsLoggedOutDropdown">
-	<li id="login-dropdown-list" class="dropdown">
+	<li id="login-dropdown-list" class="dropdown user user-menu">
 		<a class="dropdown-toggle" data-toggle="dropdown">{{i18n 'loginButtonsLoggedOutDropdown.signIn'}}{{#unless forbidClientAccountCreation}} / {{i18n 'loginButtonsLoggedOutDropdown.up'}}{{/unless}} <b class="caret"></b></a>
-		<div class="dropdown-menu">
-			{{> _loginButtonsLoggedOutAllServices}}
-		</div>
+		<ul class="dropdown-menu">
+      <li class="user-body">
+        {{> _loginButtonsLoggedOutAllServices}}
+      </li>
+		</ul>
 	</li>
 </template>
 
@@ -76,7 +83,7 @@
 	{{#if inForgotPasswordFlow}}
 		{{> _forgotPasswordForm}}
 	{{else}}
-		{{> _loginButtonsMessages}}
+  {{> _loginButtonsMessages}}
 		{{#each fields}}
 			{{> _loginButtonsFormField}}
 		{{/each}}
@@ -88,14 +95,18 @@
 			{{/if}}
 		</button>
 		{{#if inLoginFlow}}
-			<div id="login-other-options">
-			{{#if showForgotPasswordLink}}
-				<a id="forgot-password-link" class="pull-left" >{{i18n 'loginButtonsLoggedOutPasswordService.forgot'}}</a>
-			{{/if}}
-			{{#if showCreateAccountLink}}
-				<a id="signup-link" class="pull-right" >{{i18n 'loginButtonsLoggedOutPasswordService.createAcc'}}</a>
-			{{/if}}
-			</div>
+      <li class="user-footer">
+        {{#if showForgotPasswordLink}}
+          <div class="pull-left">
+            <a id="forgot-password-link" class="btn btn-default btn-flat">{{i18n 'loginButtonsLoggedOutPasswordService.forgot'}}</a>
+          </div>
+        {{/if}}
+        {{#if showCreateAccountLink}}
+          <div class="pull-right">
+            <a id="signup-link" class="btn btn-default btn-flat">{{i18n 'loginButtonsLoggedOutPasswordService.createAcc'}}</a>
+          </div>
+        {{/if}}
+      </li>
 		{{/if}}
 		{{#if inSignupFlow}}
 			{{> _loginButtonsBackToLoginLink}}
@@ -165,11 +176,13 @@
 </template>
 
 <template name="_loginButtonsChangePassword">
-	{{> _loginButtonsMessages}}
-	{{#each fields}}
-		{{> _loginButtonsFormField}}
-	{{/each}}
-	<button class="btn btn-block btn-primary" id="login-buttons-do-change-password">{{i18n 'loginButtonsChangePassword.submit'}}</button>
-	<button class="btn btn-block btn-default" id="login-buttons-cancel-change-password">{{i18n 'loginButtonsChangePassword.cancel'}}</button>
+  <li class="user-body">
+    {{> _loginButtonsMessages}}
+    {{#each fields}}
+      {{> _loginButtonsFormField}}
+    {{/each}}
+    <button class="btn btn-block btn-primary" id="login-buttons-do-change-password">{{i18n 'loginButtonsChangePassword.submit'}}</button>
+    <button class="btn btn-block btn-default" id="login-buttons-cancel-change-password">{{i18n 'loginButtonsChangePassword.cancel'}}</button>
+  </li>
 </template>
 
